@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'page/beranda_page.dart';
-import 'page/profile_page.dart';
-import 'page/pertemuan_page.dart';
+import 'page/dashboard.dart';
+import 'page/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,17 +15,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  int _selectedIndex = 0;
+  int selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const BerandaPage(),
-    const PertemuanPage(),
+  final List<Widget> pages = [
+    const DashboardPage(),
     const ProfilePage(),
   ];
 
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -34,22 +32,18 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       home: Scaffold(
-        body: _pages[_selectedIndex],
+        body: pages[selectedIndex],
 
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
+          currentIndex: selectedIndex,
+          onTap: onItemTapped,
 
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: "Beranda",
-            ),
-
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: "Pertemuan",
+              label: "Dashboard",
             ),
 
             BottomNavigationBarItem(
