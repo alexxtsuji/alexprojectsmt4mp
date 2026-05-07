@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../pertemuan/pertemuan6.dart';
+import '../pertemuan/pertemuan7.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -12,17 +13,42 @@ class DashboardPage extends StatelessWidget {
       ),
 
       body: Center(
-        child: ElevatedButton(
-          child: const Text("Pertemuan 6"),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    const Pertemuan6Page(),
-              ),
-            );
-          },
+        child: Column(
+          mainAxisAlignment:
+              MainAxisAlignment.center,
+
+          children: [
+
+            ElevatedButton(
+              child: const Text("Pertemuan 6"),
+
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const Pertemuan6Page(),
+                  ),
+                );
+              },
+            ),
+
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              child: const Text("Pertemuan 7"),
+
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const Pertemuan7Page(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
